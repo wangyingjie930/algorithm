@@ -24,7 +24,7 @@ func (x units) Swap(i, j int) {
 }
 
 type Consistent struct {
-	circle map[uint32]string
+	circle       map[uint32]string
 	sortedHashes units
 }
 
