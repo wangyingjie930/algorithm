@@ -1,2 +1,0 @@
-# algorithm
-algorithm for Interview
