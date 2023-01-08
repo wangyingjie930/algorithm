@@ -7,8 +7,8 @@
 package Morris
 
 import (
+	BST "algorithm/二叉查找树"
 	"fmt"
-	BST "imooc-product/backend/二叉查找树"
 	"testing"
 )
 
