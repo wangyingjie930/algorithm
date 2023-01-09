@@ -13,14 +13,19 @@ import (
 )
 
 type TreeNode interface {
-	// GetLeft nil和interface{}之间是不相等的, 必须显式地返回是否为nil
-	GetLeft() (interface{}, bool)
-	GetRight() (interface{}, bool)
+	// GetLeft 坑点: nil和interface{}之间是不相等的, 必须显式地返回是否为nil
+	// 返回的值也只要TreeNode, 不需要*TreeNode!!
+	GetLeft() (TreeNode, bool)
+	GetRight() (TreeNode, bool)
 	GetKey() int
 	GetValue() int
 }
 
 // PrintTree /*打印二叉树*/
+// 坑点: 接收的参数为TreeNode, 而非*TreeNode!!
+// 这里的TreeNode传值的话, 那么实现接口的结构体接收者要以值的形式实现接口
+// 如果传指针的话, 那么实现接口的结构体接收者要以指针的形式实现接口
+// 传interface，传递的是一个interface对象，这个对象占用16字节长度，包含一个指向原数据的指针，和一个指向运行时类型信息的指针
 func PrintTree(root TreeNode)  {
 	height := calDepth(root)
 	m := height + 1
@@ -40,10 +45,10 @@ func PrintTree(root TreeNode)  {
 		node, r, c := e.node, e.r, e.c
 		ans[r][c] = strconv.Itoa(node.GetKey())
 		if left, isnull := node.GetLeft(); !isnull {
-			q = append(q, entry{left.(TreeNode), r + 1, c - 1<<(height-r-1)})
+			q = append(q, entry{left, r + 1, c - 1<<(height-r-1)})
 		}
 		if right, isnull := node.GetRight(); !isnull {
-			q = append(q, entry{right.(TreeNode), r + 1, c + 1<<(height-r-1)})
+			q = append(q, entry{right, r + 1, c + 1<<(height-r-1)})
 		}
 	}
 
@@ -63,10 +68,10 @@ func calDepth(root TreeNode) int {
 		q = nil
 		for _, node := range tmp {
 			if left, isnull := node.GetLeft(); !isnull {
-				q = append(q, left.(TreeNode))
+				q = append(q, left)
 			}
 			if right, isnull := node.GetRight(); !isnull {
-				q = append(q, right.(TreeNode))
+				q = append(q, right)
 			}
 		}
 	}
