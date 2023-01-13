@@ -2,7 +2,7 @@ package 深度优先遍历
 
 import (
 	"fmt"
-	"imooc-product/backend/图1/无向图"
+	"algorithm/图1/无向图"
 )
 
 // Dfs 递归写法

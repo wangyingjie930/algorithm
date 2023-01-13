@@ -2,7 +2,7 @@ package 广度优先遍历
 
 import (
 	"fmt"
-	"imooc-product/backend/图1/无向图"
+	"algorithm/图1/无向图"
 )
 
 func Bfs(graph *无向图.Graph, start int)  {

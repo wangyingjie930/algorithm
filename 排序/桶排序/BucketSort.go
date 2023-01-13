@@ -7,7 +7,7 @@
 package 桶排序
 
 import (
-	QuickSort "imooc-product/backend/排序/快速排序"
+	QuickSort "algorithm/排序/快速排序"
 )
 
 func bucketSort(arr []int, bucketNum int) {

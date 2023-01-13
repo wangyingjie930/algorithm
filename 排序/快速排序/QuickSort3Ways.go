@@ -1,7 +1,7 @@
 package QuickSort
 
 import (
-	InsertSort "imooc-product/backend/排序/插入排序"
+	InsertSort "algorithm/排序/插入排序"
 	"math/rand"
 )
 

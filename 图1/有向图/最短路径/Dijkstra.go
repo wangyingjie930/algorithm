@@ -3,7 +3,7 @@ package 最短路径
 import (
 	"container/heap"
 	"fmt"
-	Graph "imooc-product/backend/图1/有向图"
+	Graph "algorithm/图1/有向图"
 	"math"
 )
 

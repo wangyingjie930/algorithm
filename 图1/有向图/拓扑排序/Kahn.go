@@ -2,7 +2,7 @@ package 拓扑排序
 
 import (
 	"fmt"
-	Graph "imooc-product/backend/图1/有向图"
+	Graph "algorithm/图1/有向图"
 )
 
 func Kahn(graph *Graph.Graph)  {

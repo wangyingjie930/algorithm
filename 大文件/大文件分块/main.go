@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	Heap "imooc-product/backend/排序/堆排序"
+	Heap "algorithm/排序/堆排序"
 	"io"
 	"io/ioutil"
 	"log"

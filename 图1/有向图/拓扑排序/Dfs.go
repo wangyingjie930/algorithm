@@ -1,6 +1,6 @@
 package 拓扑排序
 
-import Graph "imooc-product/backend/图1/有向图"
+import Graph "algorithm/图1/有向图"
 
 // 构建逆序的图 错的
 func inverseGraph(graph *Graph.Graph) *Graph.Graph {

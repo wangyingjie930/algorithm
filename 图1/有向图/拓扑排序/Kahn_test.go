@@ -1,7 +1,7 @@
 package 拓扑排序
 
 import (
-	"imooc-product/backend/图1/有向图"
+	"algorithm/图1/有向图"
 	"testing"
 )
 
