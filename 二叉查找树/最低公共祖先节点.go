@@ -1,6 +1,5 @@
-/**
-给定两个二叉树的节点node1和node2，找到他们的最低公共祖先节点
- */
+// Package BST
+// @Description: 给定两个二叉树的节点node1和node2，找到他们的最低公共祖先节点
 package BST
 
 func LowestAncestor(head, o1, o2 *Node) *Node {
@@ -17,7 +16,7 @@ func LowestAncestor(head, o1, o2 *Node) *Node {
 	if left != nil && right != nil {
 		//如果一边包含o1, 一边包含o2, 那么这个节点就是最低公共祖先节点
 		return head
-	}else if left == nil {
+	} else if left == nil {
 		//左边没有包含节点, 右边有则返回右边的(o1/o2)
 		return right
 	}
