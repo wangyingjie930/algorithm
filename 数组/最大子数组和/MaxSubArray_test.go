@@ -1,7 +1,7 @@
 /**
   @author: wangyingjie
   @since: 2023/2/8
-  @desc: //TODO
+  @desc: test for MaxSubArray.go
 **/
 
 package 最大子数组和

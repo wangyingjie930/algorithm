@@ -35,6 +35,10 @@ func maxSumByBackItem(nums []int, i int) int {
 	return int(math.Max(float64(maxSumByBackItem(nums, i-1)+nums[i]), float64(nums[i])))
 }
 
+// maxSubArrayDynamic
+//  @Description: 根据子问题maxSumByBackItem, 改造成动态规划
+//  @param nums
+//  @return int
 func maxSubArrayDynamic(nums []int) int {
 	sum := math.MinInt64
 	plan := nums
