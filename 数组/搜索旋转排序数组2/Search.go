@@ -7,7 +7,7 @@
 package 搜索旋转排序数组2
 
 // search
-//  @Description: 说明: 目前的解法边界条件有问题还需梳理
+//  @Description:  参考https://imageslr.com/2020/03/06/leetcode-33.html
 //  @param nums
 //  @param target
 //  @return bool
@@ -26,16 +26,21 @@ func search(nums []int, target int) bool {
 			left++
 			right--
 		} else if nums[mid] <= nums[right] {
-			if target >= nums[right] || target < nums[mid] {
-				right = mid - 1
-			} else {
-				left = mid
-			}
-		} else {
-			if target <= nums[right] || target > nums[mid] {
+			// 这个条件说明从mid到right这段路是单调递增的
+			if nums[mid] < target && target <= nums[right] {
+				//因为是从mid到right单调递增, 所以假设将target在这个区间中
+				//接下来使用二分法的那个模板, 那么left必须向右移动来维护左区间为 x < target的左区间
 				left = mid + 1
 			} else {
-				right = mid
+				right = mid - 1
+			}
+		} else {
+			// 这个条件说明从left到mid这段路是单调递增的
+			if nums[mid] >= target && target >= nums[left] {
+				//接下来使用二分法的那个模板, 那么right必须向左移动来维护右区间为 x >= target的右区间
+				right = mid - 1
+			} else {
+				left = mid + 1
 			}
 		}
 	}
