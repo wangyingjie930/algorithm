@@ -1,11 +1,14 @@
-package BST
-
 /**
-从二叉树的节点a出发，可以向上或者向下走，但沿途的节点只能经过一次，
-到达节点b时路径上的节点个数叫作a到b的距离，那么二叉树任何两个节点之间都有距离，求整棵树上的最大距离。
- */
+  @author: wangyingjie
+  @since: 2023/2/16
+  @desc: https://leetcode.cn/problems/diameter-of-binary-tree/description/
+**/
 
-func DiameterOfBinaryTree(root *Node) int {
+package 二叉树直径
+
+import BST "algorithm/二叉查找树"
+
+func DiameterOfBinaryTree(root *BST.Node) int {
 	//1. 当x参与的时候: 取 左的子树高度 + 右子树的高度 + 1
 	//2. 当x不参与的时候: 取 左子树最长距离 或者 右子树最长距离
 	//3种取最大值
@@ -23,8 +26,8 @@ func DiameterOfBinaryTree(root *Node) int {
 树形dp套路第四步：
 设计递归函数，递归函数是处理以X为头节点的情况下的答案。
 包括设计递归的basecase，默认直接得到左树和右树的所有信息，以及把可能性做整合，并且要返回第三步的信息结构这四个小步骤
- */
-func processDiameter(node *Node) (int, int) {
+*/
+func processDiameter(node *BST.Node) (int, int) {
 	if node == nil {
 		return 0, 0
 	}
