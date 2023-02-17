@@ -101,14 +101,6 @@ func TestZigzagLevelOrder(t *testing.T) {
 	fmt.Println(ZigzagLevelOrder(tree.Root))
 }
 
-func TestIsValidBST(t *testing.T) {
-	fmt.Println(IsValidBST(tree.Root))
-}
-
-func TestIsValidBST21(t *testing.T) {
-	fmt.Println(IsValidBST2(tree.Root))
-}
-
 func TestSerialize(t *testing.T) {
 	serial := Serialize(tree.Root)
 	fmt.Println(serial)
