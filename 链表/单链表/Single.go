@@ -9,11 +9,11 @@ type Node struct {
 
 type List struct {
 	Head *Node
-	tail *Node
+	Tail *Node
 }
 
 func NewSingleList() *List {
-	return &List{Head: nil, tail: nil}
+	return &List{Head: nil, Tail: nil}
 }
 
 // AddNode
@@ -24,10 +24,10 @@ func (list *List) AddNode(val int) {
 	node := &Node{Val: val}
 	if list.Head == nil {
 		list.Head = node
-		list.tail = node
+		list.Tail = node
 	} else {
-		list.tail.Next = node
-		list.tail = node
+		list.Tail.Next = node
+		list.Tail = node
 	}
 }
 
