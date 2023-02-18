@@ -20,7 +20,7 @@ func Test_zigzagLevelOrder(t *testing.T) {
 		name string
 		args args
 	}{
-		{name: "case1", args: args{nums: []int{3, 9, 20, -1, -1, 15, 7}}},
+		{name: "case1", args: args{nums: []int{3, 9, 20, Tree.NilNodeVal, Tree.NilNodeVal, 15, 7}}},
 		{name: "case1", args: args{nums: []int{1}}},
 		{name: "case1", args: args{nums: []int{}}},
 	}
