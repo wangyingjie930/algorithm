@@ -1,10 +1,12 @@
 /**
   @author: wangyingjie
   @since: 2023/2/18
-  @desc: //TODO
+  @desc: 二叉树数据结构
 **/
 
 package Tree
+
+const NilNodeVal = -1
 
 type Node struct {
 	Key   int
@@ -35,7 +37,7 @@ func (node *Node) GetValue() int {
 //  @param i
 //  @return *Node
 func NewTreeByNums(nums []int, i int) *Node {
-	if i < 0 || len(nums) <= i || nums[i] == -1 {
+	if i < 0 || len(nums) <= i || nums[i] == NilNodeVal {
 		return nil
 	}
 	node := &Node{Value: nums[i], Key: nums[i]}

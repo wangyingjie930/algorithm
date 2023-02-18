@@ -7,26 +7,26 @@
 package Morris
 
 import (
-	BST "algorithm/二叉查找树"
-	"fmt"
+	"algorithm/二叉查找树/Tree"
 	"testing"
 )
 
-var tree = newBST()
-
-func newBST() BST.Node {
-	node4:=BST.Node{Key: 4, Value: 4}
-	node5:=BST.Node{Key: 5, Value: 5}
-	node6:=BST.Node{Key: 6, Value: 6}
-	node7:=BST.Node{Key: 7, Value: 7}
-
-	node2 := BST.Node{Key: 2, Value: 2, Left: &node4, Right: &node5}
-	node3 := BST.Node{Key: 3, Value: 3, Left: &node6, Right: &node7}
-
-	return BST.Node{Key: 1, Value: 1, Left: &node2, Right: &node3}
-}
-
 func Test_morrisIn(t *testing.T) {
-	fmt.Println()
-	morrisIn(&tree)
+	type args struct {
+		nums []int
+	}
+	tests := []struct {
+		name string
+		args args
+	}{
+		{name: "case1", args: args{nums: []int{1, 2, 4, 5, 6, 7}}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			node := Tree.NewTreeByNums(tt.args.nums, 0)
+			Tree.PrintTree(node)
+
+			morrisIn(node)
+		})
+	}
 }

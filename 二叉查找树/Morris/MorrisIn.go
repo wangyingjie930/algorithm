@@ -7,19 +7,19 @@
 package Morris
 
 import (
-	BST "algorithm/二叉查找树"
+	"algorithm/二叉查找树/Tree"
 	"fmt"
 )
 
-func morrisIn(root *BST.Node) {
+func morrisIn(root *Tree.Node) {
 	head := root
-	for ;head != nil; {
+	for head != nil {
 		fmt.Println(head.Value)
 		if head.Left != nil {
 			//从左树中获得最右的节点
 			right := head.Left
 			//添加right.Right != head是因为怕因为线索形成无限循环
-			for ;right.Right != nil && right.Right != head; {
+			for right.Right != nil && right.Right != head {
 				right = right.Right
 			}
 			if right.Right == nil {
@@ -28,7 +28,7 @@ func morrisIn(root *BST.Node) {
 				//指针指向下一个节点
 				head = head.Left
 				continue
-			}else {
+			} else {
 				//通过线索创建过, 表示已经通过线索回来过, 不再需要线索, 需要还原回去
 				right.Right = nil
 			}

@@ -6,9 +6,11 @@
 
 package 二叉树直径
 
-import BST "algorithm/二叉查找树"
+import (
+	"algorithm/二叉查找树/Tree"
+)
 
-func DiameterOfBinaryTree(root *BST.Node) int {
+func DiameterOfBinaryTree(root *Tree.Node) int {
 	//1. 当x参与的时候: 取 左的子树高度 + 右子树的高度 + 1
 	//2. 当x不参与的时候: 取 左子树最长距离 或者 右子树最长距离
 	//3种取最大值
@@ -27,7 +29,7 @@ func DiameterOfBinaryTree(root *BST.Node) int {
 设计递归函数，递归函数是处理以X为头节点的情况下的答案。
 包括设计递归的basecase，默认直接得到左树和右树的所有信息，以及把可能性做整合，并且要返回第三步的信息结构这四个小步骤
 */
-func processDiameter(node *BST.Node) (int, int) {
+func processDiameter(node *Tree.Node) (int, int) {
 	if node == nil {
 		return 0, 0
 	}
