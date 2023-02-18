@@ -1,6 +1,7 @@
 package BST
 
 import (
+	BST2 "algorithm/二叉查找树"
 	"fmt"
 	"strings"
 	"testing"
@@ -63,16 +64,16 @@ func TestBST_Remove(t *testing.T) {
 }
 
 func TestLowestAncestor(t *testing.T) {
-	node := LowestAncestor(tree.Root, tree.Root.Left, tree.Root.Right.Right.Left)
+	node := BST2.LowestAncestor(tree.Root, tree.Root.Left, tree.Root.Right.Right.Left)
 	fmt.Printf("LCA: %+v\nroot: %+v\n", node, tree.Root)
 
-	node = LowestAncestor(tree.Root, tree.Root.Left, tree.Root.Right.Right.Left)
+	node = BST2.LowestAncestor(tree.Root, tree.Root.Left, tree.Root.Right.Right.Left)
 	fmt.Printf("LCA: %+v\nroot: %+v\n", node, tree.Root)
 
-	node = LowestAncestor(tree.Root, tree.Root.Left, tree.Root.Left.Right)
+	node = BST2.LowestAncestor(tree.Root, tree.Root.Left, tree.Root.Left.Right)
 	fmt.Printf("LCA: %+v\nroot: %+v\n", node, tree.Root.Left)
 
-	node = LowestAncestor(tree.Root, tree.Root.Left.Left, tree.Root.Left.Right.Right)
+	node = BST2.LowestAncestor(tree.Root, tree.Root.Left.Left, tree.Root.Left.Right.Right)
 	fmt.Printf("LCA: %+v\nroot: %+v\n", node, tree.Root.Left)
 }
 
@@ -82,7 +83,7 @@ func TestIsBalance(t *testing.T) {
 	tree.Insert(1, 1)
 	tree.Insert(2, 2)
 	tree.Insert(4, 4)
-	fmt.Print(IsBalance(tree.Root))
+	fmt.Print(BST2.IsBalance(tree.Root))
 }
 
 func TestIsBCT(t *testing.T) {
@@ -90,21 +91,17 @@ func TestIsBCT(t *testing.T) {
 	tree.Insert(2, 2)
 	tree.Insert(3, 3)
 	tree.Insert(1, 1)
-	fmt.Print(IsBCT(tree.Root))
+	fmt.Print(BST2.IsBCT(tree.Root))
 }
 
 func TestLevelOrder(t *testing.T) {
-	fmt.Println(LevelOrder(tree.Root))
-}
-
-func TestZigzagLevelOrder(t *testing.T) {
-	fmt.Println(ZigzagLevelOrder(tree.Root))
+	fmt.Println(BST2.LevelOrder(tree.Root))
 }
 
 func TestSerialize(t *testing.T) {
-	serial := Serialize(tree.Root)
+	serial := BST2.Serialize(tree.Root)
 	fmt.Println(serial)
-	tree.Root = UnSerialize(serial)
+	tree.Root = BST2.UnSerialize(serial)
 	tree.PreOrder()
 }
 
@@ -113,5 +110,5 @@ func TestString(t *testing.T) {
 }
 
 func TestMaxHappy(t *testing.T) {
-	fmt.Println(MaxHappy(tree.Root))
+	fmt.Println(BST2.MaxHappy(tree.Root))
 }

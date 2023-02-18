@@ -2,7 +2,9 @@
 // @Description: 给定两个二叉树的节点node1和node2，找到他们的最低公共祖先节点
 package BST
 
-func LowestAncestor(head, o1, o2 *Node) *Node {
+import "algorithm/二叉查找树/Tree"
+
+func LowestAncestor(head, o1, o2 *Tree.Node) *Tree.Node {
 	//当当前节点为空返回
 	//当当前节点为要搜索的其中一个节点时返回, 表明在当前的子树中包含该节点, 并返回该节点, 层层往上
 	//当遇到LCA时, 这两个往上的节点相遇, 则识别出来LCA

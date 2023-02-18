@@ -7,24 +7,24 @@
 package AVL
 
 import (
-	BST "algorithm/二叉查找树"
+	Tree2 "algorithm/二叉查找树/Tree"
 	"fmt"
 	"math"
 )
 
 type Node struct {
-	Key   int
-	Value int
-	Left  *Node
-	Right *Node
+	Key    int
+	Value  int
+	Left   *Node
+	Right  *Node
 	Height int
 }
 
-func (node *Node) GetLeft() (BST.TreeNode, bool) {
+func (node *Node) GetLeft() (Tree2.TreeNode, bool) {
 	return node.Left, node.Left == nil
 }
 
-func (node *Node) GetRight() (BST.TreeNode, bool) {
+func (node *Node) GetRight() (Tree2.TreeNode, bool) {
 	return node.Right, node.Right == nil
 }
 
@@ -41,7 +41,7 @@ func NewNode(key int, value int) *Node {
 }
 
 type Tree struct {
-	root *Node
+	root  *Node
 	count int
 }
 
@@ -58,18 +58,18 @@ func insert(root *Node, key int, value int) *Node {
 	//选取对应的位置插入
 	if root.Key > key {
 		root.Left = insert(root.Left, key, value)
-	}else if root.Key < key {
+	} else if root.Key < key {
 		root.Right = insert(root.Right, key, value)
-	}else if key == root.Key {
+	} else if key == root.Key {
 		root.Value = value
 	}
 
 	//进行高度的更新
 	if root.Left != nil && root.Right != nil {
 		root.Height = int(math.Max(float64(root.Left.Height), float64(root.Right.Height)) + 1)
-	}else if root.Left != nil {
+	} else if root.Left != nil {
 		root.Height = root.Left.Height + 1
-	}else if root.Right != nil {
+	} else if root.Right != nil {
 		root.Height = root.Right.Height + 1
 	}
 
@@ -171,7 +171,7 @@ func (node *Node) maintain() *Node {
 		//如果左节点(也就是待上升的节点的)的左子树比较高, 可以直接一次右旋就可以完成
 		//这里必须要返回右旋之后的根节点
 		return node.RightRotate()
-	}else if rightHeight > leftHeight {
+	} else if rightHeight > leftHeight {
 		//右树高, 那么最终肯定会左旋
 		rightNode := node.Right
 		rightLeftHeight, rightRightHeight := 0, 0
@@ -188,6 +188,3 @@ func (node *Node) maintain() *Node {
 	}
 	return node
 }
-
-
-

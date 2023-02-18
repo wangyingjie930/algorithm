@@ -7,7 +7,7 @@
 package 将有序数组转换为二叉搜索树
 
 import (
-	BST "algorithm/二叉查找树"
+	BST "algorithm/二叉查找树/Tree"
 	"testing"
 )
 

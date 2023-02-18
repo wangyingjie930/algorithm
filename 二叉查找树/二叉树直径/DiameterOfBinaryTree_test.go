@@ -7,7 +7,7 @@
 package 二叉树直径
 
 import (
-	BST "algorithm/二叉查找树"
+	"algorithm/二叉查找树/BST"
 	"testing"
 )
 

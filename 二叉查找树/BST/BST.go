@@ -1,21 +1,12 @@
 package BST
 
 import (
+	"algorithm/二叉查找树/Tree"
 	"fmt"
 )
 
-/**
-结点
- */
-type Node struct {
-	Key   int
-	Value int
-	Left  *Node
-	Right *Node
-}
-
 type BST struct {
-	Root  *Node
+	Root  *Tree.Node
 	count int
 }
 
@@ -39,21 +30,21 @@ func (b *BST) Contain(key int) bool {
 	return b.contain(b.Root, key)
 }
 
-func (b *BST) Search(key int) *int  {
+func (b *BST) Search(key int) *int {
 	return b.search(b.Root, key)
 }
 
 //前序遍历
-func (b *BST) PreOrder()  {
+func (b *BST) PreOrder() {
 	preOrder(b.Root)
 }
 
 //中序遍历
-func (b *BST) InOrder()  {
+func (b *BST) InOrder() {
 	inOrder(b.Root)
 }
 
-func (b *BST) PostOrder()  {
+func (b *BST) PostOrder() {
 	postOrder(b.Root)
 }
 
@@ -83,7 +74,7 @@ func (b *BST) RemoveMax() {
 	}
 }
 
-func (b *BST) Remove(key int)  {
+func (b *BST) Remove(key int) {
 	b.Root = remove(b.Root, key)
 }
 
@@ -93,18 +84,18 @@ func (b *BST) Remove(key int)  {
 
 /**
 插入节点
- */
-func (b *BST) insert (node *Node, key, value int) *Node {
+*/
+func (b *BST) insert(node *Tree.Node, key, value int) *Tree.Node {
 	if node == nil {
-		b.count ++
-		return &Node{Key: key, Value: value, Right: nil, Left: nil}
+		b.count++
+		return &Tree.Node{Key: key, Value: value, Right: nil, Left: nil}
 	}
 
 	if node.Key == key {
 		node.Value = value
-	}else if node.Key > key {
+	} else if node.Key > key {
 		node.Left = b.insert(node.Left, key, value)
-	}else {
+	} else {
 		node.Right = b.insert(node.Right, key, value)
 	}
 	return node
@@ -112,40 +103,40 @@ func (b *BST) insert (node *Node, key, value int) *Node {
 
 /**
 key是否包含在树中
- */
-func (b *BST) contain (node *Node, key int) bool {
+*/
+func (b *BST) contain(node *Tree.Node, key int) bool {
 	if node == nil {
 		return false
 	}
 	if node.Key == key {
 		return true
-	}else if node.Key > key {
+	} else if node.Key > key {
 		return b.contain(node.Left, key)
-	}else {
+	} else {
 		return b.contain(node.Right, key)
 	}
 }
 
 /**
 返回查找节点的值
- */
-func (b *BST) search (node *Node, key int) *int {
+*/
+func (b *BST) search(node *Tree.Node, key int) *int {
 	if node == nil {
 		return nil
 	}
 	if node.Key == key {
 		return &node.Value
-	}else if node.Key > key {
+	} else if node.Key > key {
 		return b.search(node.Left, key)
-	}else {
+	} else {
 		return b.search(node.Right, key)
 	}
 }
 
 /**
 前序遍历
- */
-func preOrder(node *Node) {
+*/
+func preOrder(node *Tree.Node) {
 	if node == nil {
 		return
 	}
@@ -157,8 +148,8 @@ func preOrder(node *Node) {
 
 /**
 中序遍历
- */
-func inOrder(node *Node) {
+*/
+func inOrder(node *Tree.Node) {
 	if node == nil {
 		return
 	}
@@ -169,8 +160,8 @@ func inOrder(node *Node) {
 
 /**
 后序遍历
- */
-func postOrder(node *Node) {
+*/
+func postOrder(node *Tree.Node) {
 	if node == nil {
 		return
 	}
@@ -181,8 +172,8 @@ func postOrder(node *Node) {
 
 /**
 最小节点, 递归获取左节点就可以找到
- */
-func minimum(node *Node) *Node {
+*/
+func minimum(node *Tree.Node) *Tree.Node {
 	if node.Left == nil {
 		return node
 	}
@@ -191,8 +182,8 @@ func minimum(node *Node) *Node {
 
 /**
 最大节点, 递归获取右节点可以找到
- */
-func maximum(node *Node) *Node {
+*/
+func maximum(node *Tree.Node) *Tree.Node {
 	if node.Right == nil {
 		return node
 	}
@@ -202,8 +193,8 @@ func maximum(node *Node) *Node {
 /**
 删除最大节点
 规律: 递归获取右节点可以找到, 而且它最多也只有左子树
- */
-func removeMax(node *Node) *Node {
+*/
+func removeMax(node *Tree.Node) *Tree.Node {
 	if node.Right == nil {
 		left := node.Left
 		node = nil
@@ -216,8 +207,8 @@ func removeMax(node *Node) *Node {
 /**
 删除最小节点
 规律: 递归获取左节点就可以找到, 而且它做多只有右子树
- */
-func removeMin(node *Node) *Node {
+*/
+func removeMin(node *Tree.Node) *Tree.Node {
 	if node.Left == nil {
 		right := node.Right
 		node = nil
@@ -229,8 +220,8 @@ func removeMin(node *Node) *Node {
 
 /**
 删除节点
- */
-func remove(node *Node, key int) *Node {
+*/
+func remove(node *Tree.Node, key int) *Tree.Node {
 	if node == nil {
 		return nil
 	}
@@ -266,4 +257,3 @@ func remove(node *Node, key int) *Node {
 		}
 	}
 }
-

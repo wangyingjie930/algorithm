@@ -4,7 +4,7 @@
   @desc: //TODO
 **/
 
-package BST
+package Tree
 
 import (
 	"fmt"
@@ -26,7 +26,7 @@ type TreeNode interface {
 // 这里的TreeNode传值的话, 那么实现接口的结构体接收者要以值的形式实现接口
 // 如果传指针的话, 那么实现接口的结构体接收者要以指针的形式实现接口
 // 传interface，传递的是一个interface对象，这个对象占用16字节长度，包含一个指向原数据的指针，和一个指向运行时类型信息的指针
-func PrintTree(root TreeNode)  {
+func PrintTree(root TreeNode) {
 	height := calDepth(root)
 	m := height + 1
 	n := 1<<m - 1
@@ -77,4 +77,3 @@ func calDepth(root TreeNode) int {
 	}
 	return h
 }
-

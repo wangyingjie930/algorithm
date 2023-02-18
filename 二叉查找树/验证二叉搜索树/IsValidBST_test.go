@@ -7,7 +7,7 @@
 package 验证二叉搜索树
 
 import (
-	BST "algorithm/二叉查找树"
+	"algorithm/二叉查找树/BST"
 	"testing"
 )
 
