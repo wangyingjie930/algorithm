@@ -7,20 +7,20 @@
 package 将有序数组转换为二叉搜索树
 
 import (
-	"algorithm/二叉查找树/AVL"
+	"algorithm/二叉查找树/Tree"
 )
 
-func sortedArrayToBST(nums []int) *AVL.Node {
+func sortedArrayToBST(nums []int) *Tree.Node {
 	return helper(nums, 0, len(nums)-1)
 }
 
-func helper(nums []int, start, end int) *AVL.Node {
+func helper(nums []int, start, end int) *Tree.Node {
 	if start > end {
 		return nil
 	}
 
 	mid := (start + end) / 2
-	node := &AVL.Node{Value: nums[mid], Key: nums[mid]}
+	node := &Tree.Node{Value: nums[mid], Key: nums[mid]}
 	node.Left = helper(nums, start, mid-1)
 	node.Right = helper(nums, mid+1, end)
 	return node
