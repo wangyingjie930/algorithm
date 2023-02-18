@@ -57,7 +57,7 @@ func reverseList(start *SingList.Node, count int) (head, tail *SingList.Node, er
 }
 
 // canReverse
-//  @Description: 判断是否能进行翻转
+//  @Description: 判断是否能进行翻转, 如果数量不满足不给反转
 //  @param start
 //  @param count
 //  @return bool
