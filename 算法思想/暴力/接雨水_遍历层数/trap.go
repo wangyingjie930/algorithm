@@ -4,8 +4,12 @@
   @desc: https://leetcode.cn/problems/trapping-rain-water/
 **/
 
-package 接雨水
+package 接雨水_遍历层数
 
+// trap
+//  @Description: 按层数格子
+//  @param height
+//  @return int
 func trap(height []int) int {
 	maxHeight := height[0]
 	for _, h := range height {
