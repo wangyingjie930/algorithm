@@ -1,10 +1,10 @@
 /**
   @author: wangyingjie
   @since: 2023/2/22
-  @desc: //TODO
+  @desc:
 **/
 
-package 接雨水_遍历柱子
+package 接雨水
 
 import "testing"
 
@@ -25,9 +25,6 @@ func Test_trap(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := trap(tt.args.height); got != tt.want {
 				t.Errorf("trap() = %v, want %v", got, tt.want)
-			}
-			if got := trapDp(tt.args.height); got != tt.want {
-				t.Errorf("trapDp() = %v, want %v", got, tt.want)
 			}
 		})
 	}
