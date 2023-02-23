@@ -14,6 +14,10 @@ import (
 
 // trap
 //  @Description: 单调栈思路
+/**
+单调栈应用范围不算大，它仅适合解决NEG问题，即Next Greater Element，下一个更大元素。注意，这里也可以更小的元素，也可以是前一个。
+http://toughcoder.net/blog/2022/08/15/secret-weapon-monotonic-stack/
+*/
 //  @param height
 //  @return int
 func trap(height []int) int {
