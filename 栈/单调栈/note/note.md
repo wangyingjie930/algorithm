@@ -1,0 +1,5 @@
+- 时间复杂度：O(n)
+- 单调栈应用范围不算大，它仅适合解决NEG问题，即Next Greater Element，下一个更大元素。注意，这里也可以更小的元素，也可以是前一个。
+- 参考:
+    - https://www.bilibili.com/video/BV1vu411r733/?vd_source=c0808a52efcf11b005f1df5936845dd2
+    - http://toughcoder.net/blog/2022/08/15/secret-weapon-monotonic-stack/
