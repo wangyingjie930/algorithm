@@ -18,7 +18,8 @@ func Test_minDistance(t *testing.T) {
 		args args
 		want int
 	}{
-		{name: "case", args: args{word1: "horse", word2: "ros"}, want: 1},
+		{name: "case", args: args{word1: "horse", word2: "ros"}, want: 3},
+		{name: "case", args: args{word1: "intention", word2: "execution"}, want: 5},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
