@@ -28,8 +28,9 @@ func helper(nums []int, left, right int, target int) int {
 		if nums[mid] <= nums[right] {
 			//从mid到right单调递增
 			if target > nums[mid] && target <= nums[right] {
-				//由于mid到right是单调递增, 那么如果target在这个区间就非常好判断, 所以用这个区间
-				left = mid + 1 //这里根据target > nums[mid]这个条件根据二分查找的模板
+				//由于mid到right是单调递增, 那么如果target处于 nums[mid] < target <= num[right]就可以使用二分的模板了(符合有序的前提)
+				//target > nums[mid]刚好是符合二分左区间的条件左区间扩大
+				left = mid + 1
 			} else {
 				right = mid - 1
 			}
