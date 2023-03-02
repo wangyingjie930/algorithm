@@ -57,5 +57,8 @@ func lengthOfLISDp(nums []int) int {
 		}
 		maxSum = int(math.Max(float64(dp[i]), float64(maxSum)))
 	}
+
+	//扩展: 如果要求获得最长递增子序列应该怎么求??? 字节3面
+	//拿到最长的的下标, 往前遍历推, 过程中跳过比当前下标小的数
 	return maxSum
 }
