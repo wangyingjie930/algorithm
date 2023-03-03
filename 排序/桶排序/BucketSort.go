@@ -1,7 +1,7 @@
 /**
   @author: wangyingjie
   @since: 2022/11/27
-  @desc: //TODO
+  @desc
 **/
 
 package 桶排序
@@ -17,7 +17,7 @@ func bucketSort(arr []int, bucketNum int) {
 		if min > v {
 			min = v
 		}
-		if max < v{
+		if max < v {
 			max = v
 		}
 	}
@@ -27,7 +27,7 @@ func bucketSort(arr []int, bucketNum int) {
 	buckets := make([][]int, bucketNum)
 	for _, v := range arr {
 		//将值放入对应的桶中
-		buckets[(v - min) / interval] = append(buckets[(v - min) / interval], v)
+		buckets[(v-min)/interval] = append(buckets[(v-min)/interval], v)
 	}
 
 	var newArr []int
@@ -40,4 +40,3 @@ func bucketSort(arr []int, bucketNum int) {
 	}
 	copy(arr, newArr)
 }
-

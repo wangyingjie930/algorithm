@@ -1,7 +1,7 @@
 /**
   @author: wangyingjie
   @since: 2022/11/27
-  @desc: //TODO
+  @desc
 **/
 
 package 桶排序
@@ -21,7 +21,7 @@ func Test_bucketSort(t *testing.T) {
 		{
 			name: "case1",
 			args: args{
-				arr:   []int{111111,22323,4534,2322,4365,25254,512,24321,532,7457,7443,2342},
+				arr:   []int{111111, 22323, 4534, 2322, 4365, 25254, 512, 24321, 532, 7457, 7443, 2342},
 				start: 0,
 				end:   19,
 			},

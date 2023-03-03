@@ -11,6 +11,7 @@ package 最长有效括号
 //  @Description:
 //  @param s
 //  @return int
+//	todo: 待掌握3种解法
 func longestValidParentheses(s string) int {
 	//定义dp的含义: dp[i]表示以i作为结尾的最长有效括号
 	//状态, 选择....

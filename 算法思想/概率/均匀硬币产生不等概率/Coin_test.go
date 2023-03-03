@@ -1,7 +1,7 @@
 /**
   @author: wangyingjie
   @since: 2023/2/21
-  @desc: //TODO
+  @desc
 **/
 
 package 均匀硬币产生不等概率

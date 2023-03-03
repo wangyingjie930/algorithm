@@ -1,7 +1,7 @@
 /**
   @author: wangyingjie
   @since: 2023/2/15
-  @desc: //TODO
+  @desc
 **/
 
 package 删除链表的倒数第N个结点

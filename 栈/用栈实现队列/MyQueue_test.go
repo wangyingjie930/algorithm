@@ -1,7 +1,7 @@
 /**
   @author: wangyingjie
   @since: 2023/2/27
-  @desc: //TODO
+  @desc
 **/
 
 package 用栈实现队列
