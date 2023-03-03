@@ -21,10 +21,11 @@ func Test_lowestCommonAncestor(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
+		want int
 	}{
-		{name: "case1", args: args{nums: []int{3, 5, 1, 6, 2, 0, 8, Tree.NilNodeVal, Tree.NilNodeVal, 7, 4}, p: 5, q: 1}},
-		{name: "case1", args: args{nums: []int{3, 5, 1, 6, 2, 0, 8, Tree.NilNodeVal, Tree.NilNodeVal, 7, 4}, p: 5, q: 4}},
-		{name: "case1", args: args{nums: []int{1, 2}, p: 1, q: 2}},
+		{name: "case1", args: args{nums: []int{3, 5, 1, 6, 2, 0, 8, Tree.NilNodeVal, Tree.NilNodeVal, 7, 4}, p: 5, q: 1}, want: 3},
+		{name: "case1", args: args{nums: []int{3, 5, 1, 6, 2, 0, 8, Tree.NilNodeVal, Tree.NilNodeVal, 7, 4}, p: 5, q: 4}, want: 5},
+		{name: "case1", args: args{nums: []int{1, 2}, p: 1, q: 2}, want: 1},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -32,6 +33,9 @@ func Test_lowestCommonAncestor(t *testing.T) {
 			pNode := findNode(root, tt.args.p)
 			qNode := findNode(root, tt.args.q)
 			got := lowestCommonAncestor(root, pNode, qNode)
+			if got.Value != tt.want {
+				t.Error(tt.name)
+			}
 			fmt.Print(got.Value, "\n")
 			Tree.PrintTree(root)
 		})
