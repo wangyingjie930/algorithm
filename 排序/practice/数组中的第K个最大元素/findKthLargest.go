@@ -2,6 +2,7 @@
   @author: wangyingjie
   @since: 2023/3/2
   @desc: https://leetcode.cn/problems/kth-largest-element-in-an-array/description/
+  利用快排的思想, partition之后的mid的位置一定是最终排序后确定好的位置
 **/
 
 package 数组中的第K个最大元素
