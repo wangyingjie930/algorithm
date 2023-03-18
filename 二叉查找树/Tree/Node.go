@@ -6,7 +6,9 @@
 
 package Tree
 
-const NilNodeVal = -1
+import "math"
+
+const NilNodeVal = math.MinInt64
 
 type Node struct {
 	Key   int
