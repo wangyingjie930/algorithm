@@ -2,6 +2,7 @@
   @author: wangyingjie
   @since: 2023/3/19
   @desc: https://leetcode.cn/problems/merge-intervals/solutions/
+  掌握程度: 思路需要辅助
 **/
 
 package 合并区间
