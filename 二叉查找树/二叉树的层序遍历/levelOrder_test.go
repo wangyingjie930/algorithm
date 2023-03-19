@@ -32,6 +32,10 @@ func Test_levelOrder(t *testing.T) {
 			if got := levelOrder(node); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("levelOrder() = %v, want %v", got, tt.want)
 			}
+
+			if got := levelOrderRecur(node); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("levelOrderRecur() = %v, want %v", got, tt.want)
+			}
 		})
 	}
 }
