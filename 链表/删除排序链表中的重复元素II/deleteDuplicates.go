@@ -2,6 +2,7 @@
   @author: wangyingjie
   @since: 2023/3/22
   @desc: https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/
+  掌握程度: 不熟
 **/
 
 package 删除排序链表中的重复元素II
