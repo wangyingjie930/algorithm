@@ -34,6 +34,7 @@ func helper(cur string, remain string, digitNum int, ret *[]string) {
 
 	var digit string
 	for i := 0; i < 3 && i < len(remain); i++ {
+		//选取满足的ip整数, 加入ip字符串
 		digit = digit + string(remain[i])
 		num, _ := strconv.Atoi(digit)
 		if digit == "0" || (num <= 255 && digit[0] != '0') {
