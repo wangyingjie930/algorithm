@@ -22,6 +22,7 @@ func Test_firstMissingPositive(t *testing.T) {
 		{name: "case2", args: args{nums: []int{7, 8, 9, 11, 12}}, want: 1},
 		{name: "case2", args: args{nums: []int{-1, 4, 2, 1, 9, 10}}, want: 3},
 		{name: "case2", args: args{nums: []int{1}}, want: 2},
+		{name: "case2", args: args{nums: []int{0, 1, 2}}, want: 3},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
