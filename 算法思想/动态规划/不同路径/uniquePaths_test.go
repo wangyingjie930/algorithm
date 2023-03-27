@@ -26,6 +26,9 @@ func Test_uniquePaths(t *testing.T) {
 			if got := uniquePaths(tt.args.m, tt.args.n); got != tt.want {
 				t.Errorf("uniquePaths() = %v, want %v", got, tt.want)
 			}
+			if got := uniqueOptimization(tt.args.m, tt.args.n); got != tt.want {
+				t.Errorf("uniqueOptimization() = %v, want %v", got, tt.want)
+			}
 		})
 	}
 }
