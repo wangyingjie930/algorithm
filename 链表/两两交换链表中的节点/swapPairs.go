@@ -25,6 +25,10 @@ func swapPairs(head *List.Node) *List.Node {
 	return newHead
 }
 
+// swapPairsIteration
+//  @Description: 迭代
+//  @param head
+//  @return *List.Node
 func swapPairsIteration(head *List.Node) *List.Node {
 	if head == nil || head.Next == nil {
 		return head
