@@ -6,6 +6,9 @@
 
 package 移动零
 
+// moveZeroes
+//  @Description: 将本来是0的位置用后面的数字填上, 最后根据剩余的位置全部置为0
+//  @param nums
 func moveZeroes(nums []int) {
 	slow := 0
 	for quick := 0; quick < len(nums); quick++ {
