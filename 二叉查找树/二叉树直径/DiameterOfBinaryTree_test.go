@@ -20,17 +20,15 @@ func TestDiameterOfBinaryTree(t *testing.T) {
 		args args
 		want int
 	}{
-		{name: "case1", args: args{nums: []int{1, 2, 4, 5, 6, 7}}, want: 5},
-		{name: "case1", args: args{nums: []int{4, 2, 5, 6, 7, 1}}, want: 5},
-		{name: "case1", args: args{nums: []int{1, 5, 9, 6, 7, Tree.NilNodeVal, Tree.NilNodeVal,
-			Tree.NilNodeVal, Tree.NilNodeVal, Tree.NilNodeVal, 8}}, want: 5},
+		{name: "case1", args: args{nums: []int{1, 2, 3, 4, 5}}, want: 3},
+		{name: "case1", args: args{nums: []int{1, 2}}, want: 1},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			node := Tree.NewTreeByNums(tt.args.nums, 0)
 			Tree.PrintTree(node)
 
-			if got := DiameterOfBinaryTree(node); got != tt.want {
+			if got := diameterOfBinaryTree(node); got != tt.want {
 				t.Errorf("DiameterOfBinaryTree() = %v, want %v", got, tt.want)
 			}
 		})
