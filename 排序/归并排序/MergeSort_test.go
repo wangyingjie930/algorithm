@@ -51,7 +51,7 @@ func TestMergeSort(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Logf("before: %v", tt.args.arr)
-			mergeSort(tt.args.arr)
+			sortArray(tt.args.arr)
 			t.Logf("after: %v", tt.args.arr)
 		})
 	}
