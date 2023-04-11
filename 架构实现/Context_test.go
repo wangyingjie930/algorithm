@@ -1,4 +1,4 @@
-package 并发编程
+package 架构实现
 
 import (
 	"context"
@@ -45,7 +45,7 @@ func Test_coordinateWithWaitGroup(t *testing.T) {
 
 /**
 使用context改造wait_group
- */
+*/
 func Test_coordinateWithContext(t *testing.T) {
 	tests := []struct {
 		name string

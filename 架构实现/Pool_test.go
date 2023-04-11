@@ -1,4 +1,4 @@
-package 并发编程
+package 架构实现
 
 import (
 	"testing"

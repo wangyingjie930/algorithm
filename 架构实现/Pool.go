@@ -1,4 +1,4 @@
-package 并发编程
+package 架构实现
 
 import (
 	"fmt"
@@ -12,8 +12,8 @@ type Person struct {
 }
 
 func initPool() {
-	pool = &sync.Pool {
-		New: func()interface{} {
+	pool = &sync.Pool{
+		New: func() interface{} {
 			fmt.Println("Creating a new Person")
 			return new(Person)
 		},
