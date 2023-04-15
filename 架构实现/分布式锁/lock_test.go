@@ -4,9 +4,13 @@
   @desc:
 **/
 
-package 分布式锁
+package distributeLock
 
-import "testing"
+import (
+	"github.com/go-redsync/redsync"
+	"sync"
+	"testing"
+)
 
 func Test_newLock(t *testing.T) {
 	type args struct {
@@ -20,7 +24,23 @@ func Test_newLock(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			newLock(tt.args.i)
+			lock := newLock(tt.args.i)
+
+			var wg sync.WaitGroup
+			for i := 0; i < 20; i++ {
+				wg.Add(1)
+				go func(lock *redsync.Mutex, i int) {
+					lock.Lock()
+					defer func() {
+						lock.Unlock()
+						wg.Done()
+					}()
+
+					t.Log("i:", i)
+				}(lock, i)
+			}
+
+			wg.Wait()
 		})
 	}
 }

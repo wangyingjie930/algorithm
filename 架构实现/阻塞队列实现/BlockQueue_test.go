@@ -4,7 +4,7 @@
   @desc:
 **/
 
-package 阻塞队列实现
+package BlockingQueue
 
 import (
 	"fmt"

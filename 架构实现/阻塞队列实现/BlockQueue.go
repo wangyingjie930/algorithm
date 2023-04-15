@@ -5,7 +5,7 @@
   https://www.haohongfan.com/docs/gohandbook/sync-chapter/2021-05-10-sync-cond/
 **/
 
-package 阻塞队列实现
+package BlockingQueue
 
 import (
 	"sync"

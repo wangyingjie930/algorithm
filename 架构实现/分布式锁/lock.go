@@ -4,16 +4,15 @@
   @desc:
 **/
 
-package 分布式锁
+package distributeLock
 
 import (
-	"fmt"
 	"github.com/go-redsync/redsync"
 	"github.com/gomodule/redigo/redis"
 	"time"
 )
 
-func newLock(i int) {
+func newLock(i int) *redsync.Mutex {
 	// 创建一个连接池
 	pool := &redis.Pool{
 		MaxIdle: 3,
@@ -26,16 +25,7 @@ func newLock(i int) {
 	rs := redsync.New([]redsync.Pool{pool})
 
 	// 创建一个分布式互斥锁
-	mutex := rs.NewMutex("my-lock", redsync.SetExpiry(3*time.Second))
+	mutex := rs.NewMutex("my-lock", redsync.SetExpiry(100*time.Second))
 
-	mutex.Lock()
-
-	// 执行业务逻辑
-	fmt.Print("proceeding: ", i, "\n")
-
-	// 释放锁，如果失败则返回错误
-	_, err := mutex.Unlock()
-	if err != nil {
-		panic(err)
-	}
+	return mutex
 }
