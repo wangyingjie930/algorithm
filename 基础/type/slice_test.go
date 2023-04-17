@@ -35,6 +35,17 @@ func TestCap(t *testing.T) {
 	b := s[:2]         //cap(b) = 3[s的容量] - 0[切片起始位置] = 3
 	c := s[1:2:cap(s)] // cap(c) = 3[s的容量] - 1[切片起始位置] = 2
 	t.Log("cap:", cap(a), cap(b), cap(c))
+	t.Log("slice:", a, b, c, s[:3])
+
+	//假设基础切片是 baseSlice，使用操作符 [low,high]，有如下规则：0 <= low <= high <= cap(baseSlice)
+	//s[:4] //error, 超过原本数组的容量
+}
+
+func TestSubSlice(t *testing.T) {
+	x := make([]int, 2, 10)
+	_ = x[6:10]
+	_ = x[6:] //截取符号 [i:j]，如果j省略，默认是原切片或者数组的长度, 相当于x[6:2]
+	_ = x[2:]
 }
 
 func TestAppend(t *testing.T) {
@@ -44,11 +55,6 @@ func TestAppend(t *testing.T) {
 	fmt.Println(s1) //[1 2 4], 因为是引用类型嘛
 	s2 = append(s2, 5, 6, 7)
 	fmt.Println(s1) //[1 2 4], append s2数组时会使s2生成新的数组
-}
-
-func TestCompare(t *testing.T) {
-	//fmt.Println([...]int{1} == [2]int{1}) //不同类型不能进行比较, 包括数组长度不一样也是不能比较的
-	//fmt.Println([]int{1} == []int{1}) //切片不能进行比较, 切片、map、函数等是不能比较的
 }
 
 func TestGoRange(t *testing.T) {

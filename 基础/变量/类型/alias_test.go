@@ -52,3 +52,15 @@ func TestUser(t *testing.T) {
 	i1.m1()
 	i2.m2() //因为User2是User的别名, 所以User实现了, User2也就实现了
 }
+
+// TestByteAlias
+//  @Description: byte的别名是uint8,rune的别名是int32
+//  @param t
+func TestByteAlias(t *testing.T) {
+	var a byte = 0x11
+	var b uint8 = a
+	var c uint8 = a + b
+	func(x byte) {
+		fmt.Println(x)
+	}(c)
+}

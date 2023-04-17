@@ -15,7 +15,6 @@ func Test_String(t *testing.T) {
 	str := "hello"
 	//str[0] = 'x' //Go 语言中的字符串是只读的, 会报错的
 	fmt.Println(str)
-	//str == nil //会报错, 字符串不能和nil进行比较
 }
 
 type Direction int

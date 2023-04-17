@@ -75,3 +75,27 @@ func TestAssignNil(t *testing.T) {
 
 	fmt.Println(x)
 }
+
+func TestScopeAssign(t *testing.T) {
+	x := 1
+	fmt.Println(x)
+	{
+		//出现作用域之后，就会导致变量隐藏的问题
+		fmt.Println(x)
+		i, x := 2, 2
+		fmt.Println(i, x)
+	}
+	fmt.Println(x) //输出1
+}
+
+func TestMulti(t *testing.T) {
+	var m map[int]bool // nil
+	_ = m[123]
+	var p *[5]string // nil
+	for range p {
+		_ = len(p)
+	}
+	var s []int              // nil
+	_ = s[:]                 //这里居然不报错
+	s, s[0] = []int{1, 2}, 9 //error, s为nil, 无法进行s[0]
+}

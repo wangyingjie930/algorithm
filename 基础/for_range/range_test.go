@@ -55,3 +55,27 @@ func Test_true(t *testing.T) {
 		fmt.Println(k, "===>", *v)
 	}
 }
+
+// TestRangeNil
+//  @Description:
+// 对nil map和slice的循环次数将是0
+// 对nil数组的循环次数将取决于它的数组类型定义的长度
+// 对nil channel的range操作将永远阻塞当前goroutine
+//  @param t
+func TestRangeNil(t *testing.T) {
+	for range []int(nil) { //循环次数将是0
+		fmt.Println("Hello")
+	}
+
+	for range map[string]string(nil) { //循环次数将是0
+		fmt.Println("world")
+	}
+
+	for i := range (*[5]int)(nil) {
+		fmt.Println(i) // 0 1 2 3 4
+	}
+
+	for range chan bool(nil) { // block here
+		fmt.Println("Bye") //fatal error: all goroutines are asleep - deadlock!
+	}
+}

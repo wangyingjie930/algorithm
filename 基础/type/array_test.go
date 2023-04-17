@@ -11,18 +11,6 @@ import (
 	"testing"
 )
 
-func Test_ArrayEqual(t *testing.T) {
-	a := [2]int{5, 6}
-	b := [2]int{5, 7}
-	////如果b := [3]int{5, 7, 8}进行比较会发生报错,数组的长度也是数组类型的组成部分，所以 a 和 b 是不同的类型，是不能比较的
-	if a == b {
-		//数组也是只能比较是否相等, 并不能比较>或<
-		fmt.Println("equal")
-	} else {
-		fmt.Println("not equal")
-	}
-}
-
 func TestRangeChangeArray(t *testing.T) {
 	var a = [5]int{1, 2, 3, 4, 5} //注意: 前提说的是数组
 	var r [5]int
@@ -43,4 +31,24 @@ func TestRangeChangeArray(t *testing.T) {
 		r =  [1 2 3 4 5]
 		a =  [1 12 13 4 5]
 	*/
+}
+
+func TestArrayNil(t *testing.T) {
+	var k = 9
+	for k = range []int{} { //空切片不进入循环
+		t.Log("enter1")
+	}
+	fmt.Println(k)
+
+	for k = 0; k < 3; k++ {
+	}
+	fmt.Println(k)
+
+	te := (*[3]int)(nil)
+
+	for k = range te { //这里能进入循环, 就奇了怪了
+		t.Log("enter2")
+	}
+	fmt.Println(k)
+	//输出: 9 3 2 enter2 enter2 enter2
 }
