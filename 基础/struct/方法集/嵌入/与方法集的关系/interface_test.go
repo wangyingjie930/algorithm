@@ -1,6 +1,11 @@
-// Package main
-// @Description: http://www.findme.wang/blog/detail/id/559.html
-package main
+/**
+  @author: wangyingjie
+  @since: 2023/4/29
+  @desc: @Description: http://www.findme.wang/blog/detail/id/559.html
+
+**/
+
+package method_set
 
 import "fmt"
 
@@ -32,17 +37,18 @@ type Student2 struct { // 以指针类型，嵌入
 }
 
 // main
+// 前提: 在进行接口断言的时候才需要考虑方法集, 平常的调用由编译器自动转换所以不用考虑方法集
 //  @Description: 规则如下:
 //1、类型 S 包含匿名字段 T，则 S和*S 方法集包含 T 方法。
 //2、类型 S 包含匿名字段 *T，则 S和 *S 方法集包含 T + *T 方法。
 //3、不管嵌入的是T还是*T，*S方法集，包含 T + *T 方法。
-func main() {
-	//Student1只能使用Person的方法[规则1]
-	//*Student1可以使用Person和*Person的方法 [规则3]
-	//*Student2/Student2可以使用Person和*Person的方法[规则2]
+func testInterface() {
+	//Student1只能实现Person的方法[规则1]
+	//*Student1可以实现Person和*Person的方法 [规则3]
+	//*Student2/Student2可以实现Person和*Person的方法[规则2]
 
-	//总结: 只要是*S都能使用T+*T的方法
-	//只能使用T的情况只有1中, 就是S加值类型嵌入
+	//总结: 只要是*S都能实现T+*T的方法
+	//S{T}时, S只能实现T的方法
 
 	/**var s1 Human = Student1{} //报错:Student1 does not implement Human (setName method has pointer receiver)
 	s1.setName("student1_01")

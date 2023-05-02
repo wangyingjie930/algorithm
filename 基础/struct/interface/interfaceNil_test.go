@@ -4,7 +4,7 @@
   @desc:
 **/
 
-package struct_test
+package interface_test
 
 import (
 	"fmt"
