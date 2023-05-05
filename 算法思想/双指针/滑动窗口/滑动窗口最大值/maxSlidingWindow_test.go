@@ -29,6 +29,9 @@ func Test_maxSlidingWindow(t *testing.T) {
 			if got := maxSlidingWindow(tt.args.nums, tt.args.k); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("maxSlidingWindow() = %v, want %v", got, tt.want)
 			}
+			if got := maxSlidingWindowV1(tt.args.nums, tt.args.k); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("maxSlidingWindowV1() = %v, want %v", got, tt.want)
+			}
 		})
 	}
 }

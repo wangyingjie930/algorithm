@@ -34,3 +34,25 @@ func maxSlidingWindow(nums []int, k int) []int {
 	}
 	return ret
 }
+
+func maxSlidingWindowV1(nums []int, k int) []int {
+	queue := NewMonotonicQueue() //初始化单调队列
+	var ret []int
+
+	for i := 0; i < len(nums); i++ {
+		if i < k-1 {
+			//注意: 这里先填满窗口的前 k - 1, 记录ret放在else分支中
+			queue.Push(nums[i])
+		} else {
+			// 窗口向前滑动，加入新数字
+			queue.Push(nums[i])
+			// 记录当前窗口的最大值
+			ret = append(ret, queue.Max())
+			if nums[i-k+1] == queue.Max() {
+				// 移出旧数字
+				queue.Pop()
+			}
+		}
+	}
+	return ret
+}
