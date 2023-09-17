@@ -6,7 +6,6 @@ import (
 )
 
 type Normal struct {
-
 }
 
 func (n *Normal) Sort(arr []int, start, end int) {
@@ -14,45 +13,29 @@ func (n *Normal) Sort(arr []int, start, end int) {
 		return
 	}*/
 	//优化点2: 当数量足够小时, 启用插入排序
-	if end - start < 3 {
-		InsertSort.InsertSort(arr[start:end+1])
+	if end-start < 3 {
+		InsertSort.InsertSort(arr[start : end+1])
 		return
 	}
-	p := partition2(arr, start, end)
-	n.Sort(arr, start, p - 1)
-	n.Sort(arr, p + 1, end)
+	p := n.partition(arr, start, end)
+	n.Sort(arr, start, p-1)
+	n.Sort(arr, p+1, end)
 }
 
 func (n *Normal) partition(arr []int, start, end int) int {
-	k := end
-	j := start
+	value := arr[start]
 
-	for l := j + 1; l <= end - 1; l ++ {
-		if arr[l] < arr[j] {
-			arr[l], arr[j] = arr[j], arr[l]
-			j ++
+	j := start
+	k := start + 1
+	for ; k <= end; k++ {
+		if arr[k] < value {
+			arr[j+1], arr[k] = arr[k], arr[j+1]
+			j++
 		}
 	}
-	arr[j], arr[k] = arr[k], arr[j]
+	arr[j], arr[start] = arr[start], arr[j]
 	return j
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*func (n *Normal) partition(arr []int, start, end int) int {
 	//优化1: 随机选取一个值作为标定
@@ -73,7 +56,7 @@ func (n *Normal) partition(arr []int, start, end int) int {
 
 func partition2(arr []int, start, end int) int {
 	//优化1: 随机选取一个值作为标定
-	randKey := rand.Int() % (end - start + 1) + start
+	randKey := rand.Int()%(end-start+1) + start
 	arr[start], arr[randKey] = arr[randKey], arr[start]
 
 	l := start
@@ -81,12 +64,12 @@ func partition2(arr []int, start, end int) int {
 	i := start + 1
 
 	//for的多条件使用平行赋值
-	for ; true; i , j = i + 1, j - 1 {
+	for ; true; i, j = i+1, j-1 {
 		for i <= end && arr[i] < arr[l] {
-			i ++
+			i++
 		}
-		for j >= start + 1 && arr[j] > arr[l] {
-			j --
+		for j >= start+1 && arr[j] > arr[l] {
+			j--
 		}
 		if i > j {
 			break
